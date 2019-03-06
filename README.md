@@ -28,15 +28,15 @@ def sum_true_f(ele_list, k):
     return False
 ```
 ----------------------------------------------------------------
-"""
-Problem #2
+# Problem #2
 
 Given an array of integers, return a new array such that each element at index i of the new array is the product of all
 the numbers in the original array except the one at i.
 
 For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3,
 2, 1], the expected output would be [2, 3, 6]
-"""
+
+```
 import numpy as np
 
 def not_prod(arr):
@@ -54,27 +54,28 @@ def not_prod_nodiv(arr):
 
     prod_arr = [left[i]*right[i] for i in range(l_arr)]
     return prod_arr
+```
 ----------------------------------------------------------------
-"""
-Problem #3
+
+# Problem #3
 
 Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s),
 which deserializes the string back into the tree.
 
 For example, given the following Node class
-
+```
 class Node:
         def __init__(self, val, left=None, right=None):
             self.val = val
             self.left = left
             self.right = right
-
+```
 The following test should pass:
-    node = Node('root', Node('left', Node('left.left')), Node('right'))
-    assert deserialize(serialize(node)).left.left.val == 'left.left'
-"""
+    `node = Node('root', Node('left', Node('left.left')), Node('right'))`
+    `assert deserialize(serialize(node)).left.left.val == 'left.left'`
 
 
+```
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -98,9 +99,10 @@ if __name__ == '__main__':
     node = Node('root', Node('left', Node('left.left')), Node('right'))
     print("Serialized : "+serialize(node))
     assert deserialize(serialize(node)).left.left.val == 'left.left'
+```
 ----------------------------------------------------------------
-"""
-Problem #4
+
+#Problem #4
 
 Given an array of integers, find the first missing positive integer in linear time and constant space. In other words,
 find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers
@@ -109,23 +111,23 @@ as well.
 For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
 
 You can modify the input array in-place.
-"""
 
-"""
-SOLUTIONS :
-    Brute force - search for all numbers n+1 if array of size n [ O(n^2)]
-    Sort - then simple linear search [ O(logn + n) ]
-    Hash - keep a dict of all +ve int, then do another linear iteration of N+1 elements in hash [ O(n) + O(n) space ]
 
-    Best -
-    1) Segregate positive numbers from others i.e., move all non-positive numbers to left side. In the following code,
-       segregate() function does this part.
-    2) Now we can ignore non-positive elements and consider only the part of array which contains all positive
-       elements. We traverse the array containing all positive numbers and to mark presence of an element x, we
-       change the sign of value at index x to negative. We traverse the array again and print the first index which
-       has positive value.
-"""
 
+>SOLUTIONS :
+>    Brute force - search for all numbers n+1 if array of size n [ O(n^2)]
+>    Sort - then simple linear search [ O(logn + n) ]
+>    Hash - keep a dict of all +ve int, then do another linear iteration of N+1 elements in hash [ O(n) + O(n) space ]
+
+>    Best -
+>    1) Segregate positive numbers from others i.e., move all non-positive numbers to left side. In the following code,
+>       segregate() function does this part.
+>    2) Now we can ignore non-positive elements and consider only the part of array which contains all positive
+>       elements. We traverse the array containing all positive numbers and to mark presence of an element x, we
+>       change the sign of value at index x to negative. We traverse the array again and print the first index which
+>       has positive value.
+
+```
 def segregate(arr):
     pos_idx = 0
     for i in range(len(arr)):
@@ -154,22 +156,24 @@ def missing_int(arr, k):
 if __name__ == '__main__':
     for k, arr in ((1, [3,4,-1,1]), (2, [3,4,-1,1]), (3, [1,2,0]), (1, [3,5,-1,5,0,2,7,1])):
         print(arr, k, missing_int(arr, k))
+```
 ----------------------------------------------------------------
-"""
-Problem #5
+
+#Problem #5
 
 cons(a, b) constructs a pair, and car(pair) and cdr(pair) returns the first and last element of that pair. For example,
 car(cons(3, 4)) returns 3, and cdr(cons(3, 4)) returns 4.
 
 Given this implementation of cons:
-
+```
     def cons(a, b):
         def pair(f):
-                return f(a, b)
-                    return pair
-                Implement car and cdr.
-"""
+           return f(a, b)
+        return pair
+```
+Implement car and cdr.
 
+```
 def cons(a, b):
     def pair(f):
         return f(a, b)
@@ -189,10 +193,10 @@ def cdr(f):
 if __name__ == '__main__':
     print(car(cons(3, 4)))
     print(cdr(cons(3, 4)))
-
+```
 ----------------------------------------------------------------
-"""
-Problem #6
+
+#Problem #6
 
 This problem was asked by Google.
 
@@ -202,12 +206,12 @@ an add(element) which adds the element to the end, and a get(index) which return
 
 If using a language that has no pointers (such as Python), you can assume you have access to get_pointer and
 dereference_pointer functions that converts between nodes and memory addresses.
-"""
 
-https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/
+
+> https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/
 ----------------------------------------------------------------
-"""
-Problem #7
+
+# Problem #7
 
 This problem was asked by Facebook.
 
@@ -216,8 +220,8 @@ Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the nu
 For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
 
 You can assume that the messages are decodable. For example, '001' is not allowed.
-"""
 
+```
 def count_decode(message):
     arr = [0] * (len(message)+1)
     
@@ -243,9 +247,10 @@ if __name__ == '__main__':
     print(mes, count_decode(mes))
     mes = '1013'
     print(mes, count_decode(mes))
+```
 ----------------------------------------------------------------
-"""
-Problem #8
+
+# Problem #8
 
 This problem was asked by Google.
 
@@ -262,8 +267,8 @@ For example, the following tree has 5 unival subtrees:
        1   0
       / \
      1   1
-"""
 
+```
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -294,8 +299,8 @@ def unival_ct(node):
 if __name__ == '__main__':
     head = Node(0)
     head.left = Node(1)
-    head.left.left = Node(1)
-    head.left.right = Node(1)
+    #head.left.left = Node(1)
+    #head.left.right = Node(1)
     head.right = Node(0)
     head.right.left = Node(1)
     head.right.left.left = Node(1)
@@ -303,10 +308,10 @@ if __name__ == '__main__':
     head.right.right = Node(0)
 
     print(unival_ct(head))
-
+```
 ----------------------------------------------------------------
-"""
-Problem #9
+
+#Problem #9
 
 This problem was asked by Airbnb.
 
@@ -317,8 +322,8 @@ For example, [2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5. [5, 1,
 5 and 5.
 
 Follow-up: Can you do this in O(N) time and constant space?
-"""
 
+```
 def maxsum(arr):
     if not arr:
         return 0
@@ -340,16 +345,16 @@ if __name__ == '__main__':
     print(arr, maxsum(arr))
     arr = [5,1,1,5]
     print(arr, maxsum(arr))
-
+```
 ----------------------------------------------------------------
-"""
-Problem #10
+
+# Problem #10
 
 This problem was asked by Apple.
 
 Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
-"""
 
+```
 import sched
 import time
 
@@ -366,4 +371,5 @@ if __name__ == '__main__':
     scheduler = sched.scheduler(time.time, time.sleep)
     print("Start at : "+ str(time.time()))
     job_sched(scheduler, printer, 10)
+```
 ----------------------------------------------------------------
