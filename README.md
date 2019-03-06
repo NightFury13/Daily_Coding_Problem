@@ -9,7 +9,6 @@ For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 >number of the set to all elements and carry on with below algos
 
 ```python
-require 'redcarpet'
 # Brute Force
 def sum_true_bf(ele_list, k):
     for i in range(len(ele_list)):
@@ -37,7 +36,7 @@ the numbers in the original array except the one at i.
 For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3,
 2, 1], the expected output would be [2, 3, 6]
 
-```
+```python
 import numpy as np
 
 def not_prod(arr):
@@ -64,7 +63,7 @@ Given the root to a binary tree, implement serialize(root), which serializes the
 which deserializes the string back into the tree.
 
 For example, given the following Node class
-```
+```python
 class Node:
         def __init__(self, val, left=None, right=None):
             self.val = val
@@ -76,7 +75,7 @@ The following test should pass:
     `assert deserialize(serialize(node)).left.left.val == 'left.left'`
 
 
-```
+```python
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -128,7 +127,7 @@ You can modify the input array in-place.
 >       change the sign of value at index x to negative. We traverse the array again and print the first index which
 >       has positive value.
 
-```
+```python
 def segregate(arr):
     pos_idx = 0
     for i in range(len(arr)):
@@ -166,7 +165,7 @@ cons(a, b) constructs a pair, and car(pair) and cdr(pair) returns the first and 
 car(cons(3, 4)) returns 3, and cdr(cons(3, 4)) returns 4.
 
 Given this implementation of cons:
-```
+```python
     def cons(a, b):
         def pair(f):
            return f(a, b)
@@ -174,7 +173,7 @@ Given this implementation of cons:
 ```
 Implement car and cdr.
 
-```
+```python
 def cons(a, b):
     def pair(f):
         return f(a, b)
@@ -222,7 +221,7 @@ For example, the message '111' would give 3, since it could be decoded as 'aaa',
 
 You can assume that the messages are decodable. For example, '001' is not allowed.
 
-```
+```python
 def count_decode(message):
     arr = [0] * (len(message)+1)
     
@@ -269,7 +268,7 @@ For example, the following tree has 5 unival subtrees:
       / \
      1   1
 
-```
+```python
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -324,7 +323,7 @@ For example, [2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5. [5, 1,
 
 Follow-up: Can you do this in O(N) time and constant space?
 
-```
+```python
 def maxsum(arr):
     if not arr:
         return 0
@@ -355,7 +354,7 @@ This problem was asked by Apple.
 
 Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
 
-```
+```python
 import sched
 import time
 
