@@ -1,18 +1,14 @@
-"""
 # Problem #1
 
 Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 
 For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
-"""
 
-"""
-NOTE : 
-If negative numbers are also to be handled, just add the smallest 
-number of the set to all elements and carry on with below algos
-"""
+>NOTE : 
+>If negative numbers are also to be handled, just add the smallest 
+>number of the set to all elements and carry on with below algos
 
-`
+```
 # Brute Force
 def sum_true_bf(ele_list, k):
     for i in range(len(ele_list)):
@@ -30,7 +26,7 @@ def sum_true_f(ele_list, k):
             return True
         diff_list.append(ele_list[i])
     return False
-`
+```
 ----------------------------------------------------------------
 """
 Problem #2
