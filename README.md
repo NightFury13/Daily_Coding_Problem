@@ -8,7 +8,8 @@ For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 >If negative numbers are also to be handled, just add the smallest 
 >number of the set to all elements and carry on with below algos
 
-```
+```python
+require 'redcarpet'
 # Brute Force
 def sum_true_bf(ele_list, k):
     for i in range(len(ele_list)):
