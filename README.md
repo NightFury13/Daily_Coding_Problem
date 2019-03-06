@@ -102,7 +102,7 @@ if __name__ == '__main__':
 ```
 ----------------------------------------------------------------
 
-#Problem #4
+# Problem #4
 
 Given an array of integers, find the first missing positive integer in linear time and constant space. In other words,
 find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers
@@ -159,7 +159,7 @@ if __name__ == '__main__':
 ```
 ----------------------------------------------------------------
 
-#Problem #5
+# Problem #5
 
 cons(a, b) constructs a pair, and car(pair) and cdr(pair) returns the first and last element of that pair. For example,
 car(cons(3, 4)) returns 3, and cdr(cons(3, 4)) returns 4.
@@ -196,7 +196,7 @@ if __name__ == '__main__':
 ```
 ----------------------------------------------------------------
 
-#Problem #6
+# Problem #6
 
 This problem was asked by Google.
 
@@ -311,7 +311,7 @@ if __name__ == '__main__':
 ```
 ----------------------------------------------------------------
 
-#Problem #9
+# Problem #9
 
 This problem was asked by Airbnb.
 
