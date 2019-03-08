@@ -9,6 +9,9 @@ For example, given the query string de and the set of strings [dog, deer, deal],
 Hint: Try preprocessing the dictionary into a more efficient data structure to speed up queries.
 """
 
+"""
+Perfect soln : Trie : https://www.geeksforgeeks.org/auto-complete-feature-using-trie/
+"""
 
 class Node:
     def __init__(self, val=None, children=[], c_vals=[]):
