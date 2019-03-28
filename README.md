@@ -1,4 +1,77 @@
 ----------------------------------------------------------------
+# Problem #19
+This problem was asked by Facebook.
+
+A builder is looking to build a row of N houses that can be of K different colors. He has a goal of minimizing cost
+while ensuring that no two neighboring houses are of the same color.
+
+Given an N by K matrix where the nth row and kth column represents the cost to build the nth house with kth color,
+return the minimum cost which achieves this goal.
+
+```python
+import numpy as np
+
+def min_cost(nk_mat):
+    n_row, n_col = nk_mat.shape
+    costs = np.zeros((n_row, n_col))
+
+    costs[0] = nk_mat[0]
+    for row in range(1, n_row):
+        for col in range(n_col):
+            costs[row][col] = nk_mat[row][col] + np.min(np.concatenate([costs[row-1][:col], costs[row-1][col+1:]]))
+
+    return np.min(costs[-1])
+            
+
+if __name__ == '__main__':
+    arr = [[1,2,3], [4,5,6], [7,8,9]]
+    print(np.array(arr))
+    print(min_cost(np.array(arr)))
+    
+    arr = [[1,4,7], [2,5,8], [3,6,9]]
+    print(np.array(arr))
+    print(min_cost(np.array(arr)))
+```
+----------------------------------------------------------------
+# Problem #18
+This problem was asked by Google.
+
+Given an array of integers and a number k, where 1 <= k <= length of the array, compute the maximum values of each
+subarray of length k.
+
+For example, given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7, 8, 8], since:
+
+    10 = max(10, 5, 2)
+    7 = max(5, 2, 7)
+    8 = max(2, 7, 8)
+    8 = max(7, 8, 7)
+
+Do this in O(n) time and O(k) space. You can modify the input array in-place and you do not need to store the
+results. You can simply print them out as you compute them.
+
+```python
+# Not O(n)
+def max_val(arr, k):
+    max_val = max(arr[:k])
+    print(max_val)
+
+    for i in range(len(arr)-k):
+        if arr[i+k] > max_val:
+            max_val = arr[i+k]
+            print(max_val)
+        elif arr[i] != max_val:
+            print(max_val)
+        else:
+            max_val = max(arr[i+1:i+1+k])
+            print(max_val)
+
+if __name__ == '__main__':
+    arr = [10, 5, 2, 7, 8, 7]
+    k = 3
+
+    max_val(arr, k)
+```
+----------------------------------------------------------------
 # Problem #17
 This problem was asked by Google.
 
