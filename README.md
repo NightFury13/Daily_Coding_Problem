@@ -1,4 +1,94 @@
 ----------------------------------------------------------------
+# Problem #36
+This problem was asked by Dropbox.
+
+Given the root to a binary search tree, find the second largest node in the tree.
+
+```python
+
+# Naive Solution (MaxHeap)
+
+# >heapq._heapify_max(bst)
+# >n=2
+# >for i in range(n):
+# >  ans = heapq.heappop(bst)
+# > return ans
+
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def anti_in_order(root, order_arr):
+    if root:
+        anti_in_order(root.right, order_arr)
+        order_arr.append(root.val)
+        anti_in_order(root.left, order_arr)
+
+def second_max(bst):
+    max_arr = []
+    anti_in_order(bst, max_arr)
+    return max_arr[1]
+
+
+if __name__ == '__main__':
+    bst = Node(10, Node(5, Node(3), Node(6)), Node(12, None, Node(14, Node(13))))
+
+    print(second_max(bst))
+
+```
+----------------------------------------------------------------
+# Problem #35
+This problem was asked by Google.
+
+Given an array of strictly the characters 'R', 'G', and 'B', segregate the values of the array so that all the Rs come
+first, the Gs come second, and the Bs come last. You can only swap elements of the array.
+
+Do this in linear time and in-place.
+
+For example, given the array ['G', 'B', 'R', 'R', 'B', 'R', 'G'], it should become ['R', 'R', 'R', 'G', 'G', 'B', 'B'].
+
+```python
+def swap_sort(arr):
+    st_ptr = 0
+    end_ptr = len(arr)-1
+
+    while True:
+        while arr[st_ptr] is 'R' and st_ptr < end_ptr:
+            st_ptr += 1
+        while arr[end_ptr] is not 'R' and st_ptr <= end_ptr:
+            end_ptr -= 1
+
+        if st_ptr > end_ptr:
+            break
+
+        arr[st_ptr], arr[end_ptr] = arr[end_ptr], arr[st_ptr]
+
+    end_ptr = len(arr)-1
+
+    while True:
+        while arr[st_ptr] is not 'B' and st_ptr < end_ptr:
+            st_ptr += 1
+        while arr[end_ptr] is 'B' and st_ptr <= end_ptr:
+            end_ptr -= 1
+
+        if st_ptr > end_ptr:
+            break
+
+        arr[st_ptr], arr[end_ptr] = arr[end_ptr], arr[st_ptr]
+
+    return arr
+
+
+if __name__ == '__main__':
+    in_arr = ['G', 'B', 'R', 'R', 'B', 'R', 'G']
+
+    print(in_arr)
+    print(swap_sort(in_arr))
+```
+----------------------------------------------------------------
 # Problem #33
 This problem was asked by Microsoft.
 
