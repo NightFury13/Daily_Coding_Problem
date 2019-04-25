@@ -19,20 +19,23 @@ class Node:
         self.left = left
         self.right = right
 
-def anti_in_order(root, order_arr):
+def anti_in_order(root, order_arr, k):
     if root:
-        anti_in_order(root.right, order_arr)
-        order_arr.append(root.val)
-        anti_in_order(root.left, order_arr)
+        anti_in_order(root.right, order_arr, k)
+        if len(order_arr) < k:
+            order_arr.append(root.val)
+        else:
+            return
+        anti_in_order(root.left, order_arr, k)
 
-def second_max(bst):
+def k_max(bst, k):
     max_arr = []
-    anti_in_order(bst, max_arr)
-    return max_arr[1]
+    anti_in_order(bst, max_arr, k)
+    return max_arr[-1]
 
 
 if __name__ == '__main__':
     bst = Node(10, Node(5, Node(3), Node(6)), Node(12, None, Node(14, Node(13))))
 
-    print(second_max(bst))
+    print(k_max(bst, k=2))
 
