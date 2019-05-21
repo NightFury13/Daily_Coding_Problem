@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
-# Problem #54
+# Problem #55
 This problem was asked by Microsoft.
 
 Implement a URL shortener with the following methods:
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     print(shortner.rev_map)
 ```
 ----------------------------------------------------------------
-# Problem #53
+# Problem #54
 This problem was asked by Dropbox.
 
 Sudoku is a puzzle where you're given a partially-filled 9 by 9 grid with digits. The objective is 
